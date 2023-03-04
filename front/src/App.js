@@ -10,7 +10,7 @@ function App() {
 
     // Send a request to the server with the prompt
     axios
-      .post("/chat", { prompt })
+      .fetch("http://localhost:8080", { prompt })
       .then((res) => {
         // Update the response state with the server's response
         setResponse(res.data);
