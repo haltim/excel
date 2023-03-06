@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-  apiKey: "APIKEY",
+  apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 
@@ -22,15 +22,23 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors())
 
+
 // Set up the ChatGPT endpoint
-app.get("/", async (req, res) => {
+app.post("/chat", async (req, res) => {
   // Get the prompt from the request
   const { prompt } = req.body;
+  
 
   // Generate a response with ChatGPT
   const completion = await openai.createCompletion({
     model: "text-davinci-002",
-    prompt: prompt,
+    prompt: prompt ,
+    max_tokens: 300,
+    frequency_penalty: 0.4,
+    presence_penalty:0.6,
+    n: 4,
+    stop: ".",
+    
   });
   res.send(completion.data.choices[0].text);
 });
