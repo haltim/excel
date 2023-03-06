@@ -71,6 +71,7 @@ function App() {
 
     // Send a request to the server with the prompt
     axios
+<<<<<<< HEAD
       .post(
         "http://localhost:8080/chat",
         JSON.stringify({ prompt }),
@@ -81,6 +82,9 @@ function App() {
           },
         }
       )
+=======
+      .fetch("http://localhost:8080", { prompt })
+>>>>>>> 63cbd49d94506cf75666b6ecfa54c007cff7272b
       .then((res) => {
         // Update the response state with the server's response
         setResponse(res.data);

@@ -24,7 +24,11 @@ app.use(cors())
 
 
 // Set up the ChatGPT endpoint
+<<<<<<< HEAD
 app.post("/chat", async (req, res) => {
+=======
+app.get("/", async (req, res) => {
+>>>>>>> 63cbd49d94506cf75666b6ecfa54c007cff7272b
   // Get the prompt from the request
   const { prompt } = req.body;
   
